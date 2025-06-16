@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-native';
 import products from '@assets/data/products'
 
 const product = products[0];
@@ -20,19 +20,22 @@ const ProductListItem = ({ product}: {product: any}) =>{
 }
 export default function TabOneScreen() {
   return (
-   <ScrollView>
-<ProductListItem product={products[0]}/>
-<ProductListItem product={products[1]}/>
-<ProductListItem product={products[2]}/>
-<ProductListItem product={products[3]}/>
-<ProductListItem product={products[4]}/>
-<ProductListItem product={products[5]}/>
-<ProductListItem product={products[6]}/>
-<ProductListItem product={products[7]}/>
-<ProductListItem product={products[8]}/>
-<ProductListItem product={products[9]}/>
-   </ScrollView>
-  );
+
+// <ProductListItem product={products[0]}/>
+// <ProductListItem product={products[1]}/>
+// <ProductListItem product={products[2]}/>
+// <ProductListItem product={products[3]}/>
+// <ProductListItem product={products[4]}/>
+// <ProductListItem product={products[5]}/>
+// <ProductListItem product={products[6]}/>
+// <ProductListItem product={products[7]}/>
+// <ProductListItem product={products[8]}/>
+// <ProductListItem product={products[9]}/>
+<FlatList
+data={products}
+renderItem={({item}) => <ProductListItem product={item}/>}
+numColumns={2}
+ /> );
 }
 
 const styles = StyleSheet.create({
